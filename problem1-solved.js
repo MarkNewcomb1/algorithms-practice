@@ -42,3 +42,22 @@ function getTheAverage(arr) {
 }
 
 console.log(getTheAverage([2, 4, 6]) == 4);
+
+function missingNumber(arr) {
+    if (arr.length == 1){
+        return arr[0] + 1;
+    }
+   for (i = 0; i < arr.length; i++) {
+        var currentNumber = arr[i];
+        var newNumber = arr[i + 1];
+       if ((currentNumber + 1) != newNumber) {
+           return (currentNumber + 1);
+       }
+   }
+
+}
+
+console.log(missingNumber([1,2,4]) == 3);
+console.log(missingNumber([1,2,3,4,5]) == 6);
+console.log(missingNumber([1, 9]) == 2);
+console.log(missingNumber([1]) == 2);
