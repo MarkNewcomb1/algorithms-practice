@@ -61,3 +61,20 @@ console.log(missingNumber([1,2,4]) == 3);
 console.log(missingNumber([1,2,3,4,5]) == 6);
 console.log(missingNumber([1, 9]) == 2);
 console.log(missingNumber([1]) == 2);
+
+//Write a function which takes an array of integers and returns an array with any duplicate integers removed.
+//[1,1,2,3,1,2,3] -> [1,2,3]
+//[1,4,4,4,2,2,4,4,4] -> [1,4,2]
+
+function removeDuplicates (arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == arr[i++])
+            arr.splice(i, 1);
+        }
+    return arr;
+    }
+
+
+
+
+console.log(removeDuplicates([1,1,2,3,1,2,3]));
