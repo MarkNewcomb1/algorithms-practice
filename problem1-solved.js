@@ -66,14 +66,20 @@ console.log(missingNumber([1]) == 2);
 //[1,1,2,3,1,2,3] -> [1,2,3]
 //[1,4,4,4,2,2,4,4,4] -> [1,4,2]
 
+function compareNumbers(a, b) {
+  return a - b;
+}
+
 function removeDuplicates (arr) {
+    arr.sort(compareNumbers());
+    console.log(arr);
     for (var i = 0; i < arr.length; i++) {
-        if (arr[i] == arr[i++])
+        if (arr[i] == arr[i + 1]){
             arr.splice(i, 1);
+        }
         }
     return arr;
     }
-
 
 
 
