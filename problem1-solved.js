@@ -66,21 +66,55 @@ console.log(missingNumber([1]) == 2);
 //[1,1,2,3,1,2,3] -> [1,2,3]
 //[1,4,4,4,2,2,4,4,4] -> [1,4,2]
 
-function compareNumbers(a, b) {
-  return a - b;
+//function compareNumbers(a, b) {
+//  return a - b;
+//}
+//
+//function removeDuplicates (arr) {
+//    arr.sort(compareNumbers());
+//    console.log(arr);
+//    for (var i = 0; i < arr.length; i++) {
+//        if (arr[i] == arr[i + 1]){
+//            arr.splice(i, 1);
+//        }
+//        }
+//    return arr;
+//    }
+
+//SOLUTION:
+
+function removeDupes(arr) {
+    "use strict";
+    var newArr = [];
+   for (var i = 0; i < arr.length; i++) {
+       var lookingFor = arr[i];
+       var foundIt = false;
+       for (var j = 0; j < newArr.length; j++) {
+           if (newArr[j] == lookingFor) {
+               foundIt = true;
+           }
+       }
+       if (!foundIt) {
+           newArr[newArr.length] = lookingFor;
+       }
+   } 
+    return newArr;
 }
 
-function removeDuplicates (arr) {
-    arr.sort(compareNumbers());
-    console.log(arr);
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] == arr[i + 1]){
-            arr.splice(i, 1);
-        }
-        }
-    return arr;
+function cmpArr(arrA, arrB) {
+    "use strict";
+    if (arrA.length != arrB.length) {
+        return false;
     }
+    for (var i = 0; i< arrA.length; i++) {
+        if (arrA[i] != arrB[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
+console.log(cmpArr([0], [0]) == true);
+console.log(cmpArr([0,1,2], [0,1,2]) == true);
 
-
-console.log(removeDuplicates([1,1,2,3,1,2,3]));
+//console.log(removeDupes([1,1,2,3,1,2,3]) == [1,2,3]);
