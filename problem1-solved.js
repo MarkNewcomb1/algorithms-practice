@@ -64,50 +64,35 @@ console.log(missingNumber([1]) == 2);
 
 //Write a function which takes an array of integers and returns an array with any duplicate integers removed.
 //[1,1,2,3,1,2,3] -> [1,2,3]
-//[1,4,4,4,2,2,4,4,4] -> [1,4,2]
-
-//function compareNumbers(a, b) {
-//  return a - b;
-//}
-//
-//function removeDuplicates (arr) {
-//    arr.sort(compareNumbers());
-//    console.log(arr);
-//    for (var i = 0; i < arr.length; i++) {
-//        if (arr[i] == arr[i + 1]){
-//            arr.splice(i, 1);
-//        }
-//        }
-//    return arr;
-//    }
 
 //SOLUTION:
 
 function removeDupes(arr) {
     "use strict";
-    var newArr = [];
-   for (var i = 0; i < arr.length; i++) {
-       var lookingFor = arr[i];
-       var foundIt = false;
-       for (var j = 0; j < newArr.length; j++) {
-           if (newArr[j] == lookingFor) {
-               foundIt = true;
+    var newArr = []; //we have to declare a new array to store the result
+   for (var i = 0; i < arr.length; i++) { //loop through array
+       var lookingFor = arr[i]; // the current index through this i loop
+       var foundIt = false; //flag variable set to false
+       for (var j = 0; j < newArr.length; j++) { //loop through new array
+           if (newArr[j] == lookingFor) { //if the index of the new array has the same value as //the original array we passed in
+               foundIt = true; //then the flag is set to true, keep looping through new array
            }
        }
-       if (!foundIt) {
-           newArr[newArr.length] = lookingFor;
+       if (!foundIt) { // if we haven't found any similarities, then
+           newArr[newArr.length] = lookingFor; //at the end of the new array, push the value of // the the original array to the new one 
        }
    } 
-    return newArr;
+    return newArr; //finally, return new array
 }
+console.log(removeDupes([1,1,2,3,1,2,3]));
 
-function cmpArr(arrA, arrB) {
+function cmpArr(arrA, arrB) { //accept two arrays to compare
     "use strict";
-    if (arrA.length != arrB.length) {
-        return false;
+    if (arrA.length != arrB.length) { //if the length of arrA isn't the same as the length of //the second array, then we already know they're not equal
+        return false; //so we return false
     }
-    for (var i = 0; i< arrA.length; i++) {
-        if (arrA[i] != arrB[i]) {
+    for (var i = 0; i< arrA.length; i++) { //loop through arrA, we've already accounted for the lengths not being equal so we can just loop through array
+        if (arrA[i] != arrB[i]) { //we're going through both arrays at the same time
             return false;
         }
     }
